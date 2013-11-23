@@ -13,7 +13,7 @@ import (
   "appengine"
   "appengine/blobstore"
   "appengine/datastore"
-//  "appengine/memcache"
+  "appengine/memcache"
   "appengine/urlfetch"
 
   "github.com/ant0ine/go-json-rest"
@@ -33,6 +33,48 @@ type BookBlob struct {
   Data []string
 }
 
+func downloadBook(c appengine.Context, i int) BookBlob {
+  client := urlfetch.Client(c)
+  resp, _ := client.Get(fmt.Sprintf("http://localhost:8080/books/%d", i))
+  defer resp.Body.Close()
+  body, _ := ioutil.ReadAll(resp.Body)
+
+  var blob BookBlob
+  json.Unmarshal(body, &blob)
+  return blob
+}
+
+func memcacheBook(c appengine.Context, blob BookBlob) {
+
+  for k, v := range blob.Data {
+    paragraph := &memcache.Item{
+      Key: fmt.Sprintf("%d:%d", blob.Id, k),
+      Value: []byte(v),
+    }
+
+    if err := memcache.Add(c, paragraph); err != nil {
+      log.Print(err)
+    }
+  }
+
+}
+
+func getParagraph(c appengine.Context, book int, index int) string {
+
+  // Get the item from the memcache
+  if item, err := memcache.Get(c, fmt.Sprintf("%d:%d", book, index)); err == memcache.ErrCacheMiss {
+    blob := downloadBook(c, book)
+    memcacheBook(c, blob)
+    return getParagraph(c, book, index)
+  } else if err != nil {
+    log.Print("err")
+  } else {
+    return string(item.Value)
+  }
+
+  return ""
+}
+
 func GetParagraphs(w *rest.ResponseWriter, r *rest.Request) {
   count, _ := strconv.Atoi(r.FormValue("num"))
   if count == 0 { count = 4 }
@@ -43,23 +85,16 @@ func GetParagraphs(w *rest.ResponseWriter, r *rest.Request) {
   var books []Book
   q.GetAll(c, &books)
 
-  book := books[rand.Intn(len(books))]
-  start := rand.Intn(book.Paragraphs - count)
+  var blob BookBlob
+  blob.Book = books[rand.Intn(len(books))]
+  start := rand.Intn(blob.Paragraphs - count)
 
-  // ------
-  client := urlfetch.Client(c)
-  resp, err := client.Get(fmt.Sprintf("http://localhost:8080/books/%d", book.Id))
-  if err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
+  var subset []string
+  for i := start; i < start + count; i++ {
+    subset = append(subset, getParagraph(c, blob.Id, i))
   }
 
-  defer resp.Body.Close()
-  body, _ := ioutil.ReadAll(resp.Body)
-
-  var blob BookBlob
-  json.Unmarshal(body, &blob)
-  blob.Data = blob.Data[start:start+count]
+  blob.Data = subset
   w.WriteJson(blob)
 }
 
