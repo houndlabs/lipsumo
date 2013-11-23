@@ -1,5 +1,6 @@
 import copy
 import json
+import os
 import re
 import sys
 
@@ -15,6 +16,8 @@ metadata = {
   'author': re.compile('Author:\s?(.*)$', re.M)
 }
 
+host = "http://localhost:8080/"
+
 for fname, book in raw_books:
   data = {}
   for n, r in metadata.iteritems():
@@ -29,15 +32,15 @@ for fname, book in raw_books:
   blob = copy.copy(data)
   blob['data'] = paragraphs
 
-  print '%s:' % (data['id'], data['paragraphs'])
+  print '%s: %s' % (data['id'], data['paragraphs'])
 
   try:
-    r = requests.get("http://localhost:8080/upload")
+    r = requests.get(host + "upload")
     files = { 'file': json.dumps(blob) }
     r = requests.post(json.loads(r.text)['url'], files=files)
 
     data['key'] = json.loads(r.text)['key']
-    r = requests.post("http://localhost:8080/books", json.dumps(data),
+    r = requests.post(host + "books", json.dumps(data),
       headers={'Content-type': 'application/json'})
   except Exception, e:
     print e.read()

@@ -34,6 +34,7 @@ type BookBlob struct {
 }
 
 func downloadBook(c appengine.Context, i int) BookBlob {
+
   client := urlfetch.Client(c)
   resp, _ := client.Get(fmt.Sprintf("http://localhost:8080/books/%d", i))
   defer resp.Body.Close()
@@ -46,17 +47,18 @@ func downloadBook(c appengine.Context, i int) BookBlob {
 
 func memcacheBook(c appengine.Context, blob BookBlob) {
 
+  var items []*memcache.Item
   for k, v := range blob.Data {
     paragraph := &memcache.Item{
       Key: fmt.Sprintf("%d:%d", blob.Id, k),
       Value: []byte(v),
     }
-
-    if err := memcache.Add(c, paragraph); err != nil {
-      log.Print(err)
-    }
+    items = append(items, paragraph)
   }
 
+  if err := memcache.SetMulti(c, items); err != nil {
+    c.Infof("Memcache error: %s", err)
+  }
 }
 
 func getParagraph(c appengine.Context, book int, index int) string {
@@ -67,7 +69,7 @@ func getParagraph(c appengine.Context, book int, index int) string {
     memcacheBook(c, blob)
     return getParagraph(c, book, index)
   } else if err != nil {
-    log.Print("err")
+    c.Infof("Error: %s", err)
   } else {
     return string(item.Value)
   }
