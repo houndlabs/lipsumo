@@ -2,12 +2,10 @@ import copy
 import json
 import os
 import re
+import string
 import sys
 
-import requests
-
 raw_books = [(x, open(os.path.join('books', x), 'r').read()) for x in os.listdir('./books')]
-converted_books = []
 
 header = re.compile('\*\*\*\s?START.*$', re.M)
 footer = re.compile('\*\*\*\s?END.*$', re.M)
@@ -16,8 +14,6 @@ metadata = {
   'author': re.compile('Author:\s?(.*)$', re.M)
 }
 
-host = "http://localhost:8080/"
-
 for fname, book in raw_books:
   data = {}
   for n, r in metadata.iteritems():
@@ -25,22 +21,25 @@ for fname, book in raw_books:
     if result:
       data[n] = result.group(1).strip()
 
-  content = footer.split(header.split(book)[1])[0]
-  paragraphs = [x.strip() for x in content.strip().split('\r\n\r\n') if len(x) > 0]
   data['id'] = int(fname[2:-4])
-  data['paragraphs'] = len(paragraphs)
-  blob = copy.copy(data)
-  blob['data'] = paragraphs
+  content = footer.split(header.split(book)[1])[0]
+  data['data'] = []
+  for p in content.strip().split('\r\n\r\n'):
+    if (len(p) == 0):
+      continue
+
+    p = string.replace(p.strip(), '\r\n', " ")
+    paragraph = {
+      'text': p,
+      'characters': len(p),
+      'sentences': len(p.split('.')),
+    }
+    data['data'].append(paragraph)
+
+  data['paragraphs'] = len(data['data'])
 
   print '%s: %s' % (data['id'], data['paragraphs'])
 
-  try:
-    r = requests.get(host + "upload")
-    files = { 'file': json.dumps(blob) }
-    r = requests.post(json.loads(r.text)['url'], files=files)
-
-    data['key'] = json.loads(r.text)['key']
-    r = requests.post(host + "books", json.dumps(data),
-      headers={'Content-type': 'application/json'})
-  except Exception, e:
-    print e.read()
+  fobj = open("gae/books/%s.json" % (data['id'],), 'wb')
+  fobj.write(json.dumps(data))
+  fobj.close()
