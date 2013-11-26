@@ -1,0 +1,12 @@
+
+.popover-content {
+  padding: 0px;
+}
+
+.popover-content .list-group {
+  margin: 0px;
+}
+
+.popover-content .list-group .list-group-item {
+  border: 0px;
+}
