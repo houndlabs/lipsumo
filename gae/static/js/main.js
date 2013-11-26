@@ -8,6 +8,10 @@
       content:function(){
           return $($(this).data('contentwrapper')).html();
       }
+  }).on('shown.bs.popover', function() {
+    $(".num-paragraphs .amount a").click(function() {
+      redraw($(this).attr('num'));
+    });
   });
 
   // -- Page refresh
@@ -21,5 +25,4 @@
     });
   };
 
-  $(".num-paragraphs li a").click(function() { redraw($(this).attr('num')); });
 })(jQuery);
