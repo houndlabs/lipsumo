@@ -1,6 +1,7 @@
 package ipsum
 
 import(
+  "html/template"
   "io/ioutil"
   "log"
   "encoding/json"
@@ -32,10 +33,7 @@ type Response struct {
   Data []string
 }
 
-func getParagraphs(w *rest.ResponseWriter, r *rest.Request) {
-  count, _ := strconv.Atoi(r.FormValue("num"))
-  if count == 0 { count = 4 }
-
+func selectParagraphs(count int) Response {
   available_books, _ := ioutil.ReadDir("books")
 
   book_name := available_books[rand.Intn(len(available_books))].Name()
@@ -55,15 +53,28 @@ func getParagraphs(w *rest.ResponseWriter, r *rest.Request) {
   resp.Title = book.Title
   resp.Data = subset
 
-  w.WriteJson(resp)
+  return resp
+}
+
+func getParagraphs(w *rest.ResponseWriter, r *rest.Request) {
+  count, _ := strconv.Atoi(r.FormValue("num"))
+  if count == 0 { count = 4 }
+
+  w.WriteJson(selectParagraphs(count))
+}
+
+func showIndex(w *rest.ResponseWriter, r *rest.Request) {
+  t, _ := template.ParseFiles("tmpl/head.html", "tmpl/foot.html", "tmpl/index.html")
+  t.ExecuteTemplate(w, "index", selectParagraphs(4))
 }
 
 func init() {
   handler := rest.ResourceHandler{}
   handler.SetRoutes(
+    rest.Route{"GET", "/", showIndex},
     rest.Route{"GET", "/paragraphs", getParagraphs},
   )
   http.Handle("/", &handler)
 
-  log.Print("start")
+  log.Print("started...")
 }
