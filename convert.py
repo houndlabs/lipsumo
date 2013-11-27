@@ -25,7 +25,7 @@ for fname, book in raw_books:
   content = footer.split(header.split(book)[1])[0]
   data['data'] = []
   for p in content.strip().split('\r\n\r\n'):
-    if (len(p) == 0):
+    if (len(p) < 25):
       continue
 
     p = string.replace(p.strip(), '\r\n', " ")

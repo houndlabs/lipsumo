@@ -1,5 +1,15 @@
 (function($) {
 
+  var select_text = function() {
+    if (window.getSelection) {
+      var range = document.createRange();
+      range.selectNode($(".canvas")[0]);
+      window.getSelection().addRange(range);
+    }
+  };
+
+  $(".canvas").click(select_text);
+
   // -- Bootstrap helpers
 
   $('[rel=popover]').popover({
