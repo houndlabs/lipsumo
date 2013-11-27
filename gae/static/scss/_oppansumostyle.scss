@@ -1,0 +1,61 @@
+/* ========================================================================== *\
+{* =======----------------------OPPAN SUMO STYLE----------------------======= *}
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+
+
+
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+{* =======----------------------TORPEDOES AWAY------------------------======= *}
+\* ============================V==V==V==V==V==V============================== */
+
+body {
+  background: url("/images/happy-lipsumo.png");
+  background-position: 50% 5em;
+  background-repeat: no-repeat;
+  background-color: $bg-color;
+  color: $text-color;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.header-block {
+  margin-bottom: 24em;
+  color: #A6DFD1;
+}
+
+.header-block .emphasis {
+  color: #FFC846;
+}
+
+.header-block .giant {
+  font-size: 15em;
+  margin-top: -0.3em;
+  margin-bottom: -0.2em;
+}
+
+.body-block {
+  background-color: #F7DFC4;
+  background-position: 5em;
+  padding-bottom: 3em;
+}
+
+.body-block .canvas {
+  background-color: #FFFFFF;
+  color: #BDB7BA;
+}
+
+.popover-content {
+  padding: 0;
+}
+
+.popover-content .list-group {
+  margin: 0;
+}
+
+.popover-content .list-group .list-group-item {
+  border: 0;
+}
+
+footer a {
+  color: #F4A78D;
+}
