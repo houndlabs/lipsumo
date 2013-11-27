@@ -64,7 +64,12 @@ func getParagraphs(w *rest.ResponseWriter, r *rest.Request) {
 }
 
 func showIndex(w *rest.ResponseWriter, r *rest.Request) {
-  t, _ := template.ParseFiles("tmpl/head.html", "tmpl/foot.html", "tmpl/index.html")
+  t, _ := template.ParseFiles(
+    "tmpl/about.html",
+    "tmpl/head.html",
+    "tmpl/foot.html",
+    "tmpl/index.html",
+  )
   t.ExecuteTemplate(w, "index", selectParagraphs(4))
 }
 

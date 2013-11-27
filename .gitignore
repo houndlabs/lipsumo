@@ -25,3 +25,4 @@ raw_books
 app.yaml
 
 .DS_Store
+config.json
