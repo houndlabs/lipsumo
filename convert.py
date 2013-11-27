@@ -5,7 +5,7 @@ import re
 import string
 import sys
 
-raw_books = [(x, open(os.path.join('books', x), 'r').read()) for x in os.listdir('./books')]
+raw_books = [(x, open(os.path.join('raw_books', x), 'r').read()) for x in os.listdir('./raw_books')]
 
 header = re.compile('\*\*\*\s?START.*$', re.M)
 footer = re.compile('\*\*\*\s?END.*$', re.M)
@@ -24,8 +24,10 @@ for fname, book in raw_books:
   data['id'] = int(fname[2:-4])
   content = footer.split(header.split(book)[1])[0]
   data['data'] = []
+  too_small = 0
   for p in content.strip().split('\r\n\r\n'):
     if (len(p) < 25):
+      too_small += 1
       continue
 
     p = string.replace(p.strip(), '\r\n', " ")
@@ -38,7 +40,7 @@ for fname, book in raw_books:
 
   data['paragraphs'] = len(data['data'])
 
-  print '%s: %s' % (data['id'], data['paragraphs'])
+  print '%s: %s %s' % (data['id'], data['paragraphs'], too_small)
 
   fobj = open("gae/books/%s.json" % (data['id'],), 'wb')
   fobj.write(json.dumps(data))
