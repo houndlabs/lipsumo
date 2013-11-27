@@ -9,34 +9,98 @@
 \* ============================V==V==V==V==V==V============================== */
 
 body {
-  background: url("/images/happy-lipsumo.png");
-  background-position: 50% 5em;
-  background-repeat: no-repeat;
   background-color: $bg-color;
   color: $text-color;
   font-size: 18px;
   line-height: 1.5;
 }
 
+.center-wrap {
+  position: relative;
+  left: 50%;
+
+  .centered {
+    position: relative;
+    left: -50%;
+  }
+}
+
+img {
+    width: 100%;
+    height: auto;
+  }
+
+a {
+  @include transition(color 0.2s ease-in);
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    @include transition(color 0.25s ease-out);
+    color: $link-hover-color;
+    text-decoration: none;
+  }
+}
+
+.emphasis {
+  color: $text-color-header;
+}
+
+/* =======----------------------LAYOUT------------------------======= */
+
 .header-block {
-  margin-bottom: 24em;
-  color: #A6DFD1;
+  color: $bg-text-color;
+
+  .giant {
+    font-size: 12em;
+    margin: -0.275em 0 -0.1em -0.05em;
+  }
+
+  a {
+    color: $text-color-header;
+
+    &:hover {
+      color: $clr-yellow-dark;
+    }
+  }
 }
 
-.header-block .emphasis {
-  color: #FFC846;
+.sumo-head {
+  margin-top: -10em;
+  position: absolute;
+  width: 100%;
 }
 
-.header-block .giant {
-  font-size: 15em;
-  margin-top: -0.3em;
-  margin-bottom: -0.2em;
+.site-footer {
+  padding: 3em 0;
 }
+
+/* =======----------------------MODULES------------------------======= */
 
 .body-block {
-  background-color: #F7DFC4;
-  background-position: 5em;
-  padding-bottom: 3em;
+  .sumo-body {
+    background-color: #F7DFC4;
+    background-image: image-url('lipsumo-body-bg.png');
+    background-repeat: repeat-y;
+    background-size: 100%;
+    max-width: 1680px;
+    margin: 0 auto;
+  }
+}
+
+.speech-bubble {
+  @include border-radius(5px);
+  background: #fff;
+  padding: 2em;
+}
+
+.speech-bubble-squiggle {
+  background: image-url('speech-squiggle.png');
+  width: 108px;
+  height: 86px;
+  position: absolute;
+  top: -86px;
+  left: 15%;
 }
 
 .body-block .canvas {

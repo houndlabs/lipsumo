@@ -10,6 +10,10 @@
 
   $(".canvas").click(select_text);
 
+  // -- FitText.js to make LIPSUMO use all the pixels
+
+  $('.giant').fitText(0.3825);
+
   // -- Bootstrap helpers
 
   $('[rel=popover]').popover({
