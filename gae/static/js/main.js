@@ -31,6 +31,12 @@
     });
   });
 
+  $(".canvas").popover({
+    html:true,
+    placement: 'top',
+    content: function() { return $(".book-info").html() }
+  });
+
   // -- Page refresh
 
   var redraw = function(num, cb) {

@@ -59,9 +59,11 @@
         <div class="col-xs-12">
           <div class="speech-bubble">
             <div class="speech-bubble-squiggle"></div>
-            {{range .Data}}
-            <p>{{.}}</p>
-            {{end}}
+            <div class="canvas">
+              {{range .Data}}
+              <p>{{.}}</p>
+              {{end}}
+            </div>
           </div>
         </div>
       </div>
@@ -111,11 +113,6 @@
 </div>
 -->
 
-  <footer>
-
-  </footer>
-</div>
-
 <div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -130,6 +127,17 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="book-info"><div clas="container"><div class="row">
+  <dl class="">
+    <dt>Author</dt>
+    <dd>{{.Author}}</dd>
+    <dt>Title</dt>
+    <dd>{{.Title}}</dd>
+  </dl>
+  </div>
+  Get the <a href="http://www.gutenberg.org/ebooks/{{.Id}}">book</a>!
 </div>
 
 {{template "foot.html" .}}

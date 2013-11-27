@@ -30,6 +30,7 @@ type Paragraph struct {
 type Response struct {
   Author string
   Title string
+  Id int
   Data []string
 }
 
@@ -52,6 +53,7 @@ func selectParagraphs(count int) Response {
   resp.Author = book.Author
   resp.Title = book.Title
   resp.Data = subset
+  resp.Id = book.Id
 
   return resp
 }
