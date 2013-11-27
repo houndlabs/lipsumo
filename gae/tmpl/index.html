@@ -129,15 +129,20 @@
   </div>
 </div>
 
-<div class="book-info"><div clas="container"><div class="row">
-  <dl class="">
-    <dt>Author</dt>
-    <dd>{{.Author}}</dd>
-    <dt>Title</dt>
-    <dd>{{.Title}}</dd>
-  </dl>
+<div class="book-info">
+  <div clas="container"><div class="row">
+    <div class="col-xs-12 text-center">
+      <dl>
+        <dt>Author</dt>
+        <dd>{{.Author}}</dd>
+        <dt>Title</dt>
+        <dd>{{.Title}}</dd>
+      </dl>
+    </div>
   </div>
-  Get the <a href="http://www.gutenberg.org/ebooks/{{.Id}}">book</a>!
+  <div class="row"><div class="col-xs-12 text-center">
+    Get the <a href="http://www.gutenberg.org/ebooks/{{.Id}}">book</a>!
+  </div></div>
 </div>
 
 {{template "foot.html" .}}
