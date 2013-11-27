@@ -23,3 +23,5 @@ _testmain.go
 
 raw_books
 app.yaml
+
+.DS_Store
