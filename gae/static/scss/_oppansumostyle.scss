@@ -1,0 +1,129 @@
+/* ========================================================================== *\
+{* =======----------------------OPPAN SUMO STYLE----------------------======= *}
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+
+
+
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+{* =======----------------------TORPEDOES AWAY------------------------======= *}
+\* ============================V==V==V==V==V==V============================== */
+
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.center-wrap {
+  position: relative;
+  left: 50%;
+
+  .centered {
+    position: relative;
+    left: -50%;
+  }
+}
+
+img {
+    width: 100%;
+    height: auto;
+  }
+
+a {
+  @include transition(color 0.2s ease-in);
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    @include transition(color 0.25s ease-out);
+    color: $link-hover-color;
+    text-decoration: none;
+  }
+}
+
+.emphasis {
+  color: $text-color-header;
+}
+
+.header-block h3  { z-index: 600; }
+.sumo-head        { z-index: 500; }
+.sumo-body        { z-index: 1; }
+
+/* =======----------------------LAYOUT------------------------======= */
+
+.header-block {
+  color: $bg-text-color;
+
+  .giant {
+    font-size: 12em;
+    margin: -0.275em 0 -0.1em -0.05em;
+  }
+
+  a {
+    color: $text-color-header;
+
+    &:hover {
+      color: $clr-yellow-dark;
+    }
+  }
+}
+
+.sumo-head {
+  margin-top: -10em;
+  position: absolute;
+  width: 100%;
+}
+
+.site-footer {
+  padding: 3em 0;
+}
+
+/* =======----------------------MODULES------------------------======= */
+
+.body-block {
+  .sumo-body {
+    background-color: #F7DFC4;
+    background-image: image-url('lipsumo-body-bg.png');
+    background-repeat: repeat-y;
+    background-size: 100%;
+    max-width: 1680px;
+    margin: 0 auto;
+  }
+}
+
+.speech-bubble {
+  @include border-radius(5px);
+  background: #fff;
+  padding: 2em;
+}
+
+.speech-bubble-squiggle {
+  background: image-url('speech-squiggle.png');
+  width: 108px;
+  height: 86px;
+  position: absolute;
+  top: -86px;
+  left: 15%;
+}
+
+.body-block .canvas {
+  background-color: #FFFFFF;
+  color: #BDB7BA;
+}
+
+.popover-content {
+  padding: 0;
+}
+
+.popover-content .list-group {
+  margin: 0;
+}
+
+.popover-content .list-group .list-group-item {
+  border: 0;
+}
+
+footer a {
+  color: #F4A78D;
+}

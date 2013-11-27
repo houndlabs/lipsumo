@@ -26,3 +26,4 @@ app.yaml
 
 .DS_Store
 config.json
+gae/static/.sass-cache*
