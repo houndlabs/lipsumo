@@ -6,7 +6,6 @@
 # Folders
 _obj
 _test
-.sass_cache/
 
 # Architecture specific extensions/prefixes
 *.[568vq]
@@ -26,3 +25,4 @@ raw_books
 app.yaml
 
 .DS_Store
+gae/static/.sass-cache*
