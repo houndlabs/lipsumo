@@ -46,6 +46,10 @@ a {
   color: $text-color-header;
 }
 
+.header-block h3  { z-index: 600; }
+.sumo-head        { z-index: 500; }
+.sumo-body        { z-index: 1; }
+
 /* =======----------------------LAYOUT------------------------======= */
 
 .header-block {
