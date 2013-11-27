@@ -5,6 +5,7 @@ lit-ipsum
 2. Start the dev server
 
     cp gae/app.yaml.example gae/app.yaml
+    goapp get github.com/ant0ine/go-json-rest 
     goapp serve gae
 
 Rebuild Books
