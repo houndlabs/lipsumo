@@ -26,7 +26,7 @@ for fname, book in raw_books:
   data['data'] = []
   too_small = 0
   for p in content.strip().split('\r\n\r\n'):
-    if (len(p) < 25):
+    if (len(p) < 100):
       too_small += 1
       continue
 
