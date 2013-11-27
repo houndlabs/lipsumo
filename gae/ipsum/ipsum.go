@@ -9,6 +9,7 @@ import(
   "math/rand"
   "net/http"
   "strconv"
+  "time"
 
   "github.com/ant0ine/go-json-rest"
 )
@@ -76,6 +77,8 @@ func showIndex(w *rest.ResponseWriter, r *rest.Request) {
 }
 
 func init() {
+  rand.Seed(time.Now().UTC().UnixNano())
+
   handler := rest.ResourceHandler{}
   handler.SetRoutes(
     rest.Route{"GET", "/", showIndex},
