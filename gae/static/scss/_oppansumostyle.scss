@@ -81,6 +81,10 @@ a {
 
 /* =======----------------------MODULES------------------------======= */
 
+.sumo-shoulders {
+  margin-bottom: -3em;
+}
+
 .sumo-body {
   background-color: #F7DFC4;
   background-image: image-url('lipsumo-body-bg.png');
@@ -94,14 +98,15 @@ a {
   @include border-radius(5px);
   background: #fff;
   padding: 2em;
+  position: relative;
+  z-index: 999;
 }
 
 .speech-bubble-squiggle {
-  background: image-url('speech-squiggle.svg');
-  width: 108px;
-  height: 86px;
+  width: 100%;
+  height: auto;
   position: absolute;
-  top: -86px;
+  bottom: 2em;
   left: 15%;
 }
 
