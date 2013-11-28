@@ -32,20 +32,20 @@ For a live example, take a look at the [website](http://lipsumo.hound.io). It us
 
 For anyone interested in using this project themselves or doing some development, it is pretty easy to get setup and running locally.
 
-1. Follow the instructions to install [GAE GO SDK](https://developers.google.com/appengine/docs/go/gettingstarted/devenvironment)
-2. Setup the local app config
+* Follow the instructions to install [GAE GO SDK](https://developers.google.com/appengine/docs/go/gettingstarted/devenvironment)
+* Setup the local app config
 
 ```
 cp gae/app.yaml.example gae/app.yaml
 ```
 
-3. Fetch the dependencies
+* Fetch the dependencies
 
 ```
 goapp get github.com/ant0ine/go-json-rest
 ```
 
-4. Serve away!
+* Serve away!
 
 ```
 goapp serve gae
