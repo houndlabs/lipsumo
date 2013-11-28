@@ -13,3 +13,38 @@ $text-color-header: $clr-yellow;
 
 $link-color: red;
 $link-hover-color: blue;
+
+/* ------------> Measurements <------------ */
+
+@function emCalc($pxWidth) {
+  @return $pxWidth / $em-base * 1em;
+}
+
+@function remCalc($pxWidth) {
+  @return $pxWidth / $em-base * 1rem;
+}
+
+$base-font-size: 16px;
+$base-line-height: 1.5;
+$em-base: 16;
+
+$zero-screen: 0;
+$x-tiny-screen: emCalc(360);
+$tiny-screen: emCalc(480);
+$small-screen: emCalc(640);
+$medium-screen: emCalc(768);
+$medium-point-5-screen: emCalc(990);
+$large-screen: emCalc(1024);
+$x-large-screen: emCalc(1440);
+
+$screen: "only screen";
+$zero: "only screen and (min-width: #{$zero-screen})";
+$x-tiny: "only screen and (min-width: #{$x-tiny-screen})";
+$tiny: "only screen and (min-width: #{$tiny-screen})";
+$small: "only screen and (min-width: #{$small-screen})";
+$medium: "only screen and (min-width: #{$medium-screen})";
+$medium-point-five: "only screen and (min-width: #{$medium-point-5-screen})";
+$large: "only screen and (min-width: #{$large-screen})";
+$x-large: "only screen and (min-width: #{$x-large-screen})";
+$landscape: "only screen and (orientation: landscape)";
+$portrait: "only screen and (orientation: portrait)";

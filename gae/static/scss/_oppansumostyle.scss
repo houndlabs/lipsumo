@@ -11,8 +11,9 @@
 body {
   background-color: $bg-color;
   color: $text-color;
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  min-width: $x-tiny-screen;
 }
 
 .center-wrap {
@@ -70,9 +71,16 @@ a {
 }
 
 .sumo-head {
-  margin-top: -10em;
   position: absolute;
   width: 100%;
+}
+
+.sumo-face {
+  margin-top: -6em;
+}
+
+.speech-bubble {
+  margin-top: -5.5em;
 }
 
 .site-footer {
@@ -82,7 +90,11 @@ a {
 /* =======----------------------MODULES------------------------======= */
 
 .sumo-shoulders {
-  margin-bottom: -3em;
+  margin-bottom: -0.25em;
+
+  img {
+    margin-top: -2em;
+  }
 }
 
 .sumo-body {
