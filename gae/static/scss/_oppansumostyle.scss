@@ -81,15 +81,13 @@ a {
 
 /* =======----------------------MODULES------------------------======= */
 
-.body-block {
-  .sumo-body {
-    background-color: #F7DFC4;
-    background-image: image-url('lipsumo-body-bg.png');
-    background-repeat: repeat-y;
-    background-size: 100%;
-    max-width: 1680px;
-    margin: 0 auto;
-  }
+.sumo-body {
+  background-color: #F7DFC4;
+  background-image: image-url('lipsumo-body-bg.png');
+  background-repeat: repeat-y;
+  background-size: 100%;
+  max-width: 1680px;
+  margin: 0 auto -1px;
 }
 
 .speech-bubble {
@@ -99,7 +97,7 @@ a {
 }
 
 .speech-bubble-squiggle {
-  background: image-url('speech-squiggle.png');
+  background: image-url('speech-squiggle.svg');
   width: 108px;
   height: 86px;
   position: absolute;
