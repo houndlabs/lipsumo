@@ -34,17 +34,23 @@ For anyone interested in using this project themselves or doing some development
 
 1. Follow the instructions to install [GAE GO SDK](https://developers.google.com/appengine/docs/go/gettingstarted/devenvironment)
 2. Setup the local app config
+
 ```
 cp gae/app.yaml.example gae/app.yaml
 ```
+
 3. Fetch the dependencies
+
 ```
 goapp get github.com/ant0ine/go-json-rest
 ```
+
 4. Serve away!
+
 ```
 goapp serve gae
 ```
+
 # Adding new books
 
 The books are all compiled into json files that get checked in (and deployed). You can either add new books or change the structure of the existing ones by modifying `convert.py`.
