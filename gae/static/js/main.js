@@ -1,18 +1,14 @@
 (function($) {
 
-  var select_text = function() {
-    if (window.getSelection) {
-      var range = document.createRange();
-      range.selectNode($(".canvas")[0]);
-      window.getSelection().addRange(range);
-    }
-  };
+  // -- Select all the text on click.
 
-  $(".num-paragraphs .amount a").click(function() {
-    redraw($(this).attr('num'), function() {
-      $(self).popover('hide');
-    });
-  });
+  var select_text = function() {
+    if (!window.getSelection) { return }
+
+    var range = document.createRange();
+    range.selectNode($(".canvas")[0]);
+    window.getSelection().addRange(range);
+  };
 
   $(".canvas").click(select_text);
 
@@ -20,33 +16,14 @@
 
   $('.giant').fitText(0.3825);
 
-  $('.list-group-item').click(function() {
-    $('.list-group-item').closest('li').removeClass('active');
-    $(this).closest('li').addClass('active');
-  });
-
-  $('.repeat').click(function(e) {
-    e.preventDefault();
-    redraw($('li.active > a').attr('num'), function() {
-
-    });
-  });
-
-  // -- Bootstrap helpers
-
-  $('[rel=popover]').popover({
-    html:true,
-    placement:'bottom',
-    content:function(){
-      return $($(this).data('contentwrapper')).html();
-    }
-  });
-
-  // -- Page refresh
+  // -- Refresh the text
 
   var redraw = function(num, cb) {
     if (!num) { num = 4 }
+
     $.get("/paragraphs?num=" + num, function(resp) {
+
+
       // TODO(thomas) : can you fix this crap please? I'm trying to add the
       // class fadeOutLeft immediately after the num-paragraphs links are
       // clicked, then grab the next text, and add fadeInRight.
@@ -63,5 +40,15 @@
       if (cb) { cb() }
     });
   };
+
+  $('.list-group-item').click(function() {
+    $('.list-group-item').closest('li').removeClass('active');
+    $(this).closest('li').addClass('active');
+  });
+
+  $('.repeat').click(function(e) {
+    e.preventDefault();
+    redraw($('li.active > a').attr('num'));
+  });
 
 })(jQuery);
