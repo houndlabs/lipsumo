@@ -35,23 +35,25 @@
   </div>
   <div class="sumo-body">
 
-    <div class="buttons-im-going-to-do-something-with-in-the-future">
-      <a href="#" class="hide"><i class="fa fa-clock-o fa-3x"></i></a>
-
-          <div class="num-paragraphs text-right">
-            <a data-contentwrapper=".num-paragraphs-popover"
-              data-toggle="popover" rel="popover">
-              <i class="fa fa-th-large fa-3x"></i>
-            </a>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4 speech-chrome">
+          <div class="author-info">
+            <span class="author">{{.Author}}</span><br>
+            <span class="title"><a href="http://www.gutenberg.org/ebooks/{{.Id}}" target="_blank">{{.Title}}</a></span>
           </div>
-
-            <div class="num-paragraphs-popover hide">
-              <div class="list-group amount">
-                <a class="list-group-item" num="2">Two</a>
-                <a class="list-group-item" num="4">Four</a>
-                <a class="list-group-item" num="6">Six</a>
-              </div>
-            </div>
+        </div>
+        <div class="col-xs-8 speech-chrome">
+          <div class="num-paragraphs">
+            <ul class="list-group amount nav nav-pills">
+              <li><a class="list-group-item" num="2"><span class="icon-btn-small"></span></a></li>
+              <li class="active"><a class="list-group-item" num="4"><span class="icon-btn-medium"></span></a></li>
+              <li><a class="list-group-item" num="6"><span class="icon-btn-large"></span></a></li>
+            </ul>
+            <a href="#" class="repeat"><i class="fa fa-repeat"></i></a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="container">
@@ -65,6 +67,7 @@
                 </div>
               </div>
             </div>
+            <p class="text-light instructions">Click to copy</p>
             <div class="canvas">
               {{range .Data}}
               <p>{{.}}</p>
@@ -84,40 +87,6 @@
     </footer>
   </div>
 </div>
-
-<!--
-      <div class="col-md-offset-1 col-md-10">
-        <div class="row">
-          <div class="col-md-2">
-            <a href="#" class="hide"><i class="fa fa-clock-o fa-3x"></i></a>
-          </div>
-          <div class="col-md-8 text-center"></div>
-            <div class="col-md-2">
-              <div class="num-paragraphs text-right">
-                <a data-contentwrapper=".num-paragraphs-popover"
-                  data-toggle="popover" rel="popover">
-                  <i class="fa fa-th-large fa-3x"></i>
-                </a>
-
-        <div class="num-paragraphs-popover hide">
-          <div class="list-group amount">
-            <a class="list-group-item" num="2">Two</a>
-            <a class="list-group-item" num="4">Four</a>
-            <a class="list-group-item" num="6">Six</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="canvas well">
-      {{range .Data}}
-      <p>{{.}}</p>
-      {{end}}
-    </div>
-  </div></div></div>
-</div>
--->
 
 <div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">

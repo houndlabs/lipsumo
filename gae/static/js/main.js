@@ -8,33 +8,38 @@
     }
   };
 
+  $(".num-paragraphs .amount a").click(function() {
+    redraw($(this).attr('num'), function() {
+      $(self).popover('hide');
+    });
+  });
+
   $(".canvas").click(select_text);
 
   // -- FitText.js to make LIPSUMO use all the pixels
 
   $('.giant').fitText(0.3825);
 
-  // -- Bootstrap helpers
+  $('.list-group-item').click(function() {
+    $('.list-group-item').closest('li').removeClass('active');
+    $(this).closest('li').addClass('active');
+  });
 
-  $('[rel=popover]').popover({
-      html:true,
-      placement:'bottom',
-      content:function(){
-          return $($(this).data('contentwrapper')).html();
-      }
-  }).on('shown.bs.popover', function() {
-    var self = this;
-    $(".num-paragraphs .amount a").click(function() {
-      redraw($(this).attr('num'), function() {
-        $(self).popover('hide');
-      });
+  $('.repeat').click(function(e) {
+    e.preventDefault();
+    redraw($('li.active > a').attr('num'), function() {
+
     });
   });
 
-  $(".canvas").popover({
+  // -- Bootstrap helpers
+
+  $('[rel=popover]').popover({
     html:true,
-    placement: 'top',
-    content: function() { return $(".book-info").html() }
+    placement:'bottom',
+    content:function(){
+      return $($(this).data('contentwrapper')).html();
+    }
   });
 
   // -- Page refresh

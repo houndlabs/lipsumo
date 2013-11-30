@@ -1,1 +1,415 @@
-h1{color:#ffc946}h3{font-size:1em;line-height:1.1em;margin:0}h4{margin:0}.speech-bubble{font-family:Monaco, courier, mono;color:#a0979b}body{background-color:#5faaa6;color:#a0979b;font-size:16px;line-height:1.5;min-width:22.5em}.center-wrap{position:relative;left:50%}.center-wrap .centered{position:relative;left:-50%}img{width:100%;height:auto}a{-webkit-transition:color 0.2s ease-in;-moz-transition:color 0.2s ease-in;-o-transition:color 0.2s ease-in;transition:color 0.2s ease-in;color:red;text-decoration:none}a:hover{-webkit-transition:color 0.25s ease-out;-moz-transition:color 0.25s ease-out;-o-transition:color 0.25s ease-out;transition:color 0.25s ease-out;color:blue;text-decoration:none}.emphasis{color:#ffc946}.header-block h3{z-index:600}.sumo-head{z-index:500}.sumo-body{z-index:1}.header-block{color:#a6e0d1}.header-block .giant{font-size:12em;margin:-0.275em 0 -0.1em -0.05em}.header-block a{color:#ffc946}.header-block a:hover{color:#8c6d27}.sumo-head{position:absolute;width:100%}.sumo-face{margin-top:-6em}.speech-bubble{margin-top:-5.5em}.site-footer{padding:3em 0}.sumo-shoulders{margin-bottom:-0.25em}.sumo-shoulders img{margin-top:-2em}.sumo-body{background-color:#F7DFC4;background-image:url('../images/lipsumo-body-bg.png?1385621904');background-repeat:repeat-y;background-size:100%;max-width:1680px;margin:0 auto -1px}.speech-bubble{-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;-o-border-radius:5px;border-radius:5px;background:#fff;padding:2em;position:relative;z-index:999}.speech-bubble-squiggle{width:100%;height:auto;position:absolute;bottom:2em;left:15%}.body-block .canvas{background-color:#FFFFFF;color:#BDB7BA}.popover-content{padding:0}.popover-content .list-group{margin:0}.popover-content .list-group .list-group-item{border:0}footer a{color:#F4A78D}@media only screen and (min-width: 30em){.sumo-face{margin-top:-9em}h3{font-size:1.5em}.speech-bubble{margin-top:-7.5em}}@media only screen and (min-width: 40em){.sumo-face{margin-top:-11em}.sumo-shoulders img{margin-top:-3em}}@media only screen and (min-width: 61.875em){.speech-bubble{margin-top:-8.5em}.sumo-face{margin-top:-15em}.sumo-shoulders img{margin-top:-5em}h3{font-size:2em}}
+/* iiiiimporting all the things */
+/* ------------> Measurements <------------ */
+@font-face {
+  font-family: 'lipsumo';
+  src: url("/fonts/lipsumo.eot");
+  src: url("/fonts/lipsumo.eot?#iefix") format("embedded-opentype"), url("/fonts/lipsumo.ttf") format("truetype"), url("/fonts/lipsumo.woff") format("woff"), url("/fonts/lipsumo.svg#lipsumo") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'lipsumo';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-btn-small:before {
+  content: "\e600";
+}
+
+.icon-btn-medium:before {
+  content: "\e601";
+}
+
+.icon-btn-large:before {
+  content: "\e602";
+}
+
+h1 {
+  color: #ffc946;
+}
+
+h3 {
+  font-size: 1em;
+  line-height: 1.1em;
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+}
+
+.speech-bubble,
+.author,
+.title {
+  font-family: Monaco, courier, mono;
+  color: #a0979b;
+}
+
+/* ========================================================================== *\
+{* =======----------------------OPPAN SUMO STYLE----------------------======= *}
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+
+
+
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+{* =======----------------------TORPEDOES AWAY------------------------======= *}
+\* ============================V==V==V==V==V==V============================== */
+body {
+  background-color: #5faaa6;
+  color: #a0979b;
+  font-size: 16px;
+  line-height: 1.5;
+  min-width: 22.5em;
+}
+
+.center-wrap {
+  position: relative;
+  left: 50%;
+}
+.center-wrap .centered {
+  position: relative;
+  left: -50%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.text-light {
+  color: #e8e1e5;
+}
+
+a {
+  -webkit-transition: all 0.1s ease-in;
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+  color: red;
+  text-decoration: none;
+}
+a:hover {
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  -o-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+  color: blue;
+  text-decoration: none;
+}
+a:active {
+  position: relative;
+  top: 2px;
+}
+
+.emphasis {
+  color: #ffc946;
+}
+
+.header-block h3 {
+  z-index: 600;
+}
+
+.sumo-head {
+  z-index: 500;
+}
+
+.sumo-body {
+  z-index: 1;
+}
+
+/* =======----------------------LAYOUT------------------------======= */
+.header-block {
+  color: #a6e0d1;
+}
+.header-block .giant {
+  font-size: 12em;
+  margin: -0.275em 0 -0.1em -0.05em;
+}
+.header-block a {
+  color: #ffc946;
+}
+.header-block a:hover {
+  color: #8c6d27;
+}
+
+.sumo-head {
+  position: absolute;
+  width: 100%;
+}
+
+.sumo-face {
+  margin-top: -6em;
+}
+
+.speech-bubble {
+  margin-top: -3.5em;
+}
+
+.site-footer {
+  padding: 3em 0;
+}
+
+.speech-chrome {
+  position: relative;
+  top: -4em;
+  z-index: 999;
+}
+
+.num-paragraphs {
+  position: relative;
+  float: right;
+}
+
+/* =======----------------------MODULES------------------------======= */
+.sumo-shoulders {
+  margin-bottom: -0.25em;
+}
+.sumo-shoulders img {
+  margin-top: -2em;
+}
+
+.sumo-body {
+  background-color: #F7DFC4;
+  background-image: url('../images/lipsumo-body-bg.png?1385621904');
+  background-repeat: repeat-y;
+  background-size: 100%;
+  max-width: 1680px;
+  margin: 0 auto -1px;
+}
+
+.speech-bubble {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background: #fff;
+  padding: 1.5em 2em;
+  position: relative;
+  z-index: 999;
+}
+
+.speech-bubble-squiggle {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 1.5em;
+  left: 15%;
+}
+
+.instructions {
+  text-align: center;
+}
+
+.repeat {
+  color: #5faaa6;
+  position: absolute;
+  font-size: 1.25em;
+  line-height: 1.4em;
+  left: -2.35em;
+  top: 0em;
+  padding: 0 0.75em;
+}
+.repeat:hover {
+  color: #116b67;
+}
+.repeat:active {
+  position: absolute;
+  top: 0.1em;
+}
+
+.author-info {
+  font-size: 0.9375em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.author-info a {
+  color: #5faaa6;
+}
+.author-info a:hover {
+  color: #116b67;
+}
+
+.body-block .canvas {
+  background-color: #fff;
+  color: #BDB7BA;
+}
+
+.popover-content {
+  padding: 0;
+}
+
+.nav-pills > li + li {
+  margin: 0;
+}
+
+.nav-pills > li > a.list-group-item {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border: 0;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  line-height: 1;
+  font-size: 0.8em;
+  background: #fff;
+  color: #ffc946;
+  padding: 0.5em 0.4em;
+}
+.nav-pills > li > a.list-group-item:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8c6d27;
+}
+
+.list-group {
+  margin: 0;
+}
+.list-group li.active a.list-group-item {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8c6d27;
+}
+.list-group li:nth-child(1) a.list-group-item {
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  -ms-border-radius: 3px 0 0 3px;
+  -o-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+.list-group li:last-child a.list-group-item {
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  -ms-border-radius: 0 3px 3px 0;
+  -o-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+
+footer a {
+  color: #F4A78D;
+}
+
+/* Just to keep things from breaking if snarky web people try to break things by
+ * shrinking the window pass the min-width point of 360 */
+ /* ======================================================================== *\
+(* -------------------------->   X-Tiny (360+)   <--------------------------- *)
+ \* ======================================================================== */
+ /* ======================================================================== *\
+(* --------------------------->   Tiny (480+)   <---------------------------- *)
+ \* ======================================================================== */
+@media only screen and (min-width: 30em) {
+  .sumo-face {
+    margin-top: -9em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  .speech-bubble {
+    margin-top: -5.5em;
+  }
+
+  .speech-chrome {
+    top: -6em;
+  }
+}
+ /* ======================================================================== *\
+(* --------------------------->   Small (640+)   <--------------------------- *)
+ \* ======================================================================== */
+@media only screen and (min-width: 40em) {
+  .sumo-face {
+    margin-top: -11em;
+  }
+
+  .repeat {
+    line-height: 1.65em;
+  }
+
+  .sumo-shoulders img {
+    margin-top: -3em;
+  }
+
+  .nav-pills > li > a.list-group-item {
+    font-size: 1em;
+  }
+}
+ /* ======================================================================== *\
+(* -------------------------->   Medium (768+)   <--------------------------- *)
+ \* ======================================================================== */
+@media only screen and (min-width: 48em) {
+  .nav-pills > li > a.list-group-item {
+    font-size: 1.2em;
+  }
+
+  .repeat {
+    line-height: 2.05em;
+  }
+
+  .speech-bubble {
+    margin-top: -6.5em;
+  }
+
+  .speech-chrome {
+    top: -7em;
+  }
+}
+ /* ======================================================================== *\
+(* --------------------->   Medium and a half (896+)   <--------------------- *)
+ \* ======================================================================== */
+@media only screen and (min-width: 56em) {
+  .speech-bubble {
+    margin-top: -9.5em;
+  }
+
+  .sumo-face {
+    margin-top: -15em;
+  }
+
+  .repeat {
+    line-height: 2.25em;
+  }
+
+  .sumo-shoulders img {
+    margin-top: -5em;
+  }
+
+  h3 {
+    font-size: 2em;
+  }
+
+  .nav-pills > li > a.list-group-item {
+    font-size: 1.3em;
+  }
+
+  .speech-chrome {
+    top: -10em;
+  }
+}
+ /* ======================================================================== *\
+(* -------------------------->   Large (990+)   <--------------------------- *)
+ \* ======================================================================== */
+@media only screen and (min-width: 61.875em) {
+  .speech-bubble {
+    margin-top: -7.5em;
+  }
+
+  .speech-chrome {
+    top: -8.5em;
+  }
+}
+ /* ======================================================================== *\
+(* -------------------------->   X-Large (1440+)   <------------------------- *)
+ \* ======================================================================== */

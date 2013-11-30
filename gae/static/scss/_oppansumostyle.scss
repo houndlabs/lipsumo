@@ -27,19 +27,28 @@ body {
 }
 
 img {
-    width: 100%;
-    height: auto;
-  }
+  width: 100%;
+  height: auto;
+}
+
+.text-light {
+  color: $text-color-light;
+}
 
 a {
-  @include transition(color 0.2s ease-in);
+  @include transition(all  0.1s ease-in);
   color: $link-color;
   text-decoration: none;
 
   &:hover {
-    @include transition(color 0.25s ease-out);
+    @include transition(all  0.15s ease-out);
     color: $link-hover-color;
     text-decoration: none;
+  }
+
+  &:active {
+    position: relative;
+    top: 2px;
   }
 }
 
@@ -80,11 +89,22 @@ a {
 }
 
 .speech-bubble {
-  margin-top: -5.5em;
+  margin-top: -3.5em;
 }
 
 .site-footer {
   padding: 3em 0;
+}
+
+.speech-chrome {
+  position: relative;
+  top: -4em;
+  z-index: 999;
+}
+
+.num-paragraphs {
+  position: relative;
+  float: right;
 }
 
 /* =======----------------------MODULES------------------------======= */
@@ -109,7 +129,7 @@ a {
 .speech-bubble {
   @include border-radius(5px);
   background: #fff;
-  padding: 2em;
+  padding: 1.5em 2em;
   position: relative;
   z-index: 999;
 }
@@ -118,12 +138,50 @@ a {
   width: 100%;
   height: auto;
   position: absolute;
-  bottom: 2em;
+  bottom: 1.5em;
   left: 15%;
 }
 
+.instructions {
+  text-align: center;
+}
+
+.repeat {
+  color: $clr-turquoise;
+  position: absolute;
+  font-size: 1.25em;
+  line-height: 1.4em;
+  left: -2.35em;
+  top: 0em;
+  padding: 0 0.75em;
+
+  &:hover {
+    color: $clr-turquoise-dark;
+  }
+
+  &:active {
+    position: absolute;
+    top: 0.1em;
+  }
+}
+
+.author-info {
+  font-size: 0.9375em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  a {
+    color: $clr-turquoise;
+
+    &:hover {
+      color: $clr-turquoise-dark;
+    }
+  }
+}
+
 .body-block .canvas {
-  background-color: #FFFFFF;
+  background-color: #fff;
   color: #BDB7BA;
 }
 
@@ -131,12 +189,44 @@ a {
   padding: 0;
 }
 
-.popover-content .list-group {
+.nav-pills>li+li {
   margin: 0;
 }
 
-.popover-content .list-group .list-group-item {
+.nav-pills>li>a.list-group-item {
+  @include border-radius(0);
   border: 0;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  line-height: 1;
+  font-size: 0.8em;
+  background: #fff;
+  color: $clr-yellow;
+  padding: 0.5em 0.4em;
+
+  &:hover {
+    background-color: rgba(white, 0.6);
+    color: $clr-yellow-dark;
+  }
+}
+
+.list-group {
+  margin: 0;
+
+  li.active a.list-group-item {
+    background-color: rgba(white, 0.6);
+    color: $clr-yellow-dark;
+  }
+
+  li:nth-child(1) a.list-group-item {
+    @include border-radius(3px 0 0 3px);
+  }
+
+  li:last-child a.list-group-item {
+    @include border-radius(0 3px 3px 0);
+  }
 }
 
 footer a {

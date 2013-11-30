@@ -1,14 +1,16 @@
-$clr-yellow:       #ffc946;
-$clr-yellow-dark:  #8c6d27;
-$clr-turquoise:    #5faaa6;
-$clr-turquoise-hi: #a6e0d1;
-$clr-noot1:        #a0979b;
-$clr-noot2:        #a89383;
+$clr-yellow:         #ffc946;
+$clr-yellow-dark:    #8c6d27;
+$clr-turquoise:      #5faaa6;
+$clr-turquoise-hi:   #a6e0d1;
+$clr-turquoise-dark: #116b67;
+$clr-noot1:          #a0979b;
+$clr-noot2:          #a89383;
 
 $bg-color: $clr-turquoise;
 $bg-text-color: $clr-turquoise-hi;
 
 $text-color: $clr-noot1;
+$text-color-light: #e8e1e5;
 $text-color-header: $clr-yellow;
 
 $link-color: red;
@@ -33,9 +35,9 @@ $x-tiny-screen: emCalc(360);
 $tiny-screen: emCalc(480);
 $small-screen: emCalc(640);
 $medium-screen: emCalc(768);
-$medium-point-5-screen: emCalc(990);
-$large-screen: emCalc(1024);
-$x-large-screen: emCalc(1440);
+$medium-point-5-screen: emCalc(896);
+$large-screen: emCalc(990);
+$x-large-screen: emCalc(1024);
 
 $screen: "only screen";
 $zero: "only screen and (min-width: #{$zero-screen})";

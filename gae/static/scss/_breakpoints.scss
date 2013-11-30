@@ -26,7 +26,11 @@
   }
 
   .speech-bubble {
-    margin-top: -7.5em;
+    margin-top: -5.5em;
+  }
+
+  .speech-chrome {
+    top: -6em;
   }
 }
 
@@ -39,8 +43,16 @@
     margin-top: -11em;
   }
 
+  .repeat {
+    line-height: 1.65em;
+  }
+
   .sumo-shoulders img {
     margin-top: -3em;
+  }
+
+  .nav-pills>li>a.list-group-item {
+    font-size: 1em;
   }
 }
 
@@ -49,20 +61,38 @@
  \* ======================================================================== */
 
 @media #{$medium} {
+  .nav-pills>li>a.list-group-item {
+    font-size: 1.2em;
+  }
 
+  .repeat {
+    line-height: 2.05em;
+  }
+
+  .speech-bubble {
+    margin-top: -6.5em;
+  }
+
+  .speech-chrome {
+    top: -7em;
+  }
 }
 
  /* ======================================================================== *\
-(* --------------------->   Medium and a half (990+)   <--------------------- *)
+(* --------------------->   Medium and a half (896+)   <--------------------- *)
  \* ======================================================================== */
 
 @media #{$medium-point-five} {
   .speech-bubble {
-    margin-top: -8.5em;
+    margin-top: -9.5em;
   }
 
   .sumo-face {
     margin-top: -15em;
+  }
+
+  .repeat {
+    line-height: 2.25em;
   }
 
   .sumo-shoulders img {
@@ -72,14 +102,28 @@
   h3 {
     font-size: 2em;
   }
+
+  .nav-pills>li>a.list-group-item {
+    font-size: 1.3em;
+  }
+
+  .speech-chrome {
+    top: -10em;
+  }
 }
 
  /* ======================================================================== *\
-(* -------------------------->   Large (1024+)   <--------------------------- *)
+(* -------------------------->   Large (990+)   <--------------------------- *)
  \* ======================================================================== */
 
 @media #{$large} {
+  .speech-bubble {
+    margin-top: -7.5em;
+  }
 
+  .speech-chrome {
+    top: -8.5em;
+  }
 }
 
  /* ======================================================================== *\
