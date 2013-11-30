@@ -5,6 +5,7 @@ $clr-turquoise-hi:   #a6e0d1;
 $clr-turquoise-dark: #116b67;
 $clr-noot1:          #a0979b;
 $clr-noot2:          #a89383;
+$clr-noot3:          #917f77;
 
 $bg-color: $clr-turquoise;
 $bg-text-color: $clr-turquoise-hi;
@@ -13,8 +14,8 @@ $text-color: $clr-noot1;
 $text-color-light: #e8e1e5;
 $text-color-header: $clr-yellow;
 
-$link-color: red;
-$link-hover-color: blue;
+$link-color: $clr-turquoise;
+$link-hover-color: $clr-turquoise-dark;
 
 /* ------------> Measurements <------------ */
 
@@ -38,6 +39,7 @@ $medium-screen: emCalc(768);
 $medium-point-5-screen: emCalc(896);
 $large-screen: emCalc(990);
 $x-large-screen: emCalc(1024);
+$xx-large-screen: emCalc(1440);
 
 $screen: "only screen";
 $zero: "only screen and (min-width: #{$zero-screen})";
@@ -48,5 +50,6 @@ $medium: "only screen and (min-width: #{$medium-screen})";
 $medium-point-five: "only screen and (min-width: #{$medium-point-5-screen})";
 $large: "only screen and (min-width: #{$large-screen})";
 $x-large: "only screen and (min-width: #{$x-large-screen})";
+$xx-large: "only screen and (min-width: #{$xx-large-screen})";
 $landscape: "only screen and (orientation: landscape)";
 $portrait: "only screen and (orientation: portrait)";

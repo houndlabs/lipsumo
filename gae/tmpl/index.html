@@ -19,17 +19,15 @@
 </div>
 
 <div class="body-block">
-  <div class="center-wrap">
-    <div class="container centered">
-      <div class="sumo-head">
-        <div class="row">
-          <div class="col-xs-offset-3 col-xs-6 sumo-face">
-            <img src="images/lipsumo-face.svg" width="780" height="630" alt="LIPSUMO">
-          </div>
-        </div>
+      
+  <div class="sumo-head">
+    <div class="row">
+      <div class="col-xs-offset-3 col-xs-6 sumo-face">
+        <img src="images/lipsumo-face.svg" width="780" height="630" alt="LIPSUMO">
       </div>
     </div>
   </div>
+    
   <div class="sumo-shoulders">
     <img src="images/lipsumo-shoulders.svg" width="1680" height="484" alt="LIPSUMO">
   </div>
@@ -38,7 +36,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-4 speech-chrome">
-          <div class="author-info">
+          <div class="author-info" title="{{.Author}} &mdash; {{.Title}}">
             <span class="author">{{.Author}}</span><br>
             <span class="title"><a href="http://www.gutenberg.org/ebooks/{{.Id}}" target="_blank">{{.Title}}</a></span>
           </div>
@@ -80,9 +78,29 @@
 
     <footer class="site-footer">
       <div class="text-center">
-        <h4>a <a href="http://hound.io">Hound</a> experiment -
-          <a data-toggle="modal" data-target="#subscribeModal">About</a>
-        </h4>
+        <section class="moat">
+          <div class="attribution">
+            a <a href="http://hound.io">Hound</a> experiment
+            <a href="https://twitter.com/houndlabs" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @houndlabs</a>
+          </div>
+        </section>
+        
+        <section>
+          <div class="share">
+            <a href="https://twitter.com/share" class="twitter-share-button" 
+            data-url="http://lipsumo.hound.io" data-text="LIPSUMO: lorem ipsum 
+            from @gutenberg_new" data-via="houndlabs">Tweet</a>
+            <div class="fb-like" data-href="http://lipsumo.hound.io" 
+            data-layout="button_count" data-action="like" data-show-faces="false" 
+            data-share="false"></div>
+          </div>
+        </section>
+        
+        <section>
+          <a class="footer-link" data-toggle="modal" data-target="#subscribeModal"><i class="fa fa-info-circle"></i> About Lipsumo</a>
+          <a class="footer-link" href="https://github.com/hound-labs/lit-ipsum"><i class="fa fa-github"></i> Lipsumo on Github</a>
+          <a class="footer-link" href="https://github.com/hound-labs/lit-ipsum/blob/master/LICENSE"><i class="fa fa-legal"></i> MIT License</a>
+        </section>
       </div>
     </footer>
   </div>
@@ -95,7 +113,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"
               aria-hidden="true">&times;</button>
-        <h4 class="modal-title">About</h4>
+        <h2 class="modal-title tk-cubano">About LIPSUMO</h2>
       </div>
       <div class="modal-body">
         {{template "about.html"}}

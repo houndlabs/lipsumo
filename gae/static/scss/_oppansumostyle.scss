@@ -11,9 +11,11 @@
 body {
   background-color: $bg-color;
   color: $text-color;
+  font-family: $text-mono;
   font-size: $base-font-size;
   line-height: $base-line-height;
   min-width: $x-tiny-screen;
+  max-width: $xx-large-screen;
 }
 
 .center-wrap {
@@ -39,6 +41,7 @@ a {
   @include transition(all  0.1s ease-in);
   color: $link-color;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
     @include transition(all  0.15s ease-out);
@@ -49,6 +52,18 @@ a {
   &:active {
     position: relative;
     top: 2px;
+  }
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+section {
+  margin-bottom: 1em;
+
+  &.moat {
+    margin-bottom: 3em;
   }
 }
 
@@ -82,6 +97,12 @@ a {
 .sumo-head {
   position: absolute;
   width: 100%;
+  min-width: $x-tiny-screen;
+  max-width: $xx-large-screen;
+
+  .row {
+    margin: 0;
+  }
 }
 
 .sumo-face {
@@ -93,7 +114,8 @@ a {
 }
 
 .site-footer {
-  padding: 3em 0;
+  padding: 3em 0 1.5em;
+  margin: 3em 0 0;
 }
 
 .speech-chrome {
@@ -142,8 +164,25 @@ a {
   left: 15%;
 }
 
+.btn-info {
+  background: $clr-turquoise;
+  border: 0;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: $clr-turquoise-dark;
+  }
+}
+
 .instructions {
   text-align: center;
+}
+
+.license {
+  width: 88px;
+  height: 31px;
+  margin: 0 auto;
 }
 
 .repeat {
@@ -210,6 +249,11 @@ a {
     background-color: rgba(white, 0.6);
     color: $clr-yellow-dark;
   }
+
+  &:active {
+    background-color: rgba(white, 0.4);
+    color: darken($clr-yellow-dark, 10%);
+  }
 }
 
 .list-group {
@@ -229,6 +273,41 @@ a {
   }
 }
 
-footer a {
-  color: #F4A78D;
+.twitter-follow-button {
+  position: relative;
+  top: 0.1em;
+  margin-left: 0.5em;
+}
+
+.modal-header {
+  padding: 1em 1.5em;
+}
+
+.modal-body {
+  font-size: 0.9375em;
+  padding: 1.5em 1.5em 2em;
+}
+
+.attribution {
+  font-size: 1.5em;
+}
+
+.site-footer {
+  background: $clr-noot3;
+  color: lighten($clr-noot3, 25%);
+
+  a {
+    color: $clr-yellow;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: darken($clr-yellow, 20%);
+    }
+  }
+}
+
+.footer-link {
+  display: inline-block;
+  padding: 0 1.5em;
 }

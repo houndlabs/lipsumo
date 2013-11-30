@@ -33,6 +33,8 @@
   content: "\e602";
 }
 
+$text-mono: Monaco, courier, mono;
+
 h1 {
   color: $clr-yellow;
 }
@@ -44,12 +46,19 @@ h3 {
 }
 
 h4 {
-  margin: 0;
+  font-family: $text-mono;
+  font-size: 1em;
+  margin: 0 0 1em;
+}
+
+h5 {
+  font-size: 1.2em;
+  margin-top: 1.5em;
 }
 
 .speech-bubble,
 .author,
 .title {
-  font-family: Monaco, courier, mono;
+  font-family: $text-mono;
   color: $text-color;
 }
