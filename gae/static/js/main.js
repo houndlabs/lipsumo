@@ -56,6 +56,10 @@
       }));
       $(".canvas").removeClass('fadeOutLeft').addClass('fadeInRight');
 
+      $(".author-info .author").text(resp.Author);
+      $(".author-info .title a").text(resp.Title).attr(
+        'href', 'http://www.gutenberg.org/ebooks/' + resp.Id);
+
       if (cb) { cb() }
     });
   };
