@@ -47,9 +47,14 @@
   var redraw = function(num, cb) {
     if (!num) { num = 4 }
     $.get("/paragraphs?num=" + num, function(resp) {
+      // TODO(thomas) : can you fix this crap please? I'm trying to add the
+      // class fadeOutLeft immediately after the num-paragraphs links are
+      // clicked, then grab the next text, and add fadeInRight.
+      $(".canvas").removeClass('fadeInRight').addClass('fadeOutLeft');
       $(".canvas").html(_.map(resp.Data, function(p) {
         return "<p>" + p + "</p>"
       }));
+      $(".canvas").removeClass('fadeOutLeft').addClass('fadeInRight');
 
       if (cb) { cb() }
     });
