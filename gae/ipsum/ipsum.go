@@ -96,7 +96,6 @@ func showIndex(w *rest.ResponseWriter, r *rest.Request) {
     "tmpl/foot.html",
     "tmpl/head.html",
     "tmpl/index.html",
-    "tmpl/metadata.html",
   )
 
   var tmpl_data struct {
@@ -107,7 +106,6 @@ func showIndex(w *rest.ResponseWriter, r *rest.Request) {
   tmpl_data.Response = selectParagraphs(4)
   tmpl_data.Config = *config
 
-  log.Println(tmpl_data)
   t.ExecuteTemplate(w, "index", tmpl_data)
 }
 

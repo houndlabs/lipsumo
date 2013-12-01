@@ -36,7 +36,7 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-xs-4 speech-chrome">
+        <div class="col-xs-4 speech-chrome metadata">
           <div class="author-info" title="{{.Author}} &mdash; {{.Title}}">
             <span class="author">{{.Author}}</span><br>
             <span class="title"><a href="http://www.gutenberg.org/ebooks/{{.Id}}"
@@ -135,6 +135,14 @@
     </div>
   </div>
 </div>
+
+<script type="tmpl/underscore" id="tmpl-metadata">
+  <div class="author-info" title="<%= Author %> &mdash; <%= Title %>">
+    <span class="author"><%= Author %></span><br>
+    <span class="title"><a href="http://www.gutenberg.org/ebooks/<%= Id %>"
+          target="_blank"><%= Title %></a></span>
+  </div>
+</script>
 
 {{template "foot.html" .}}
 

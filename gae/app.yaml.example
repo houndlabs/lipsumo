@@ -16,8 +16,5 @@ handlers:
 - url: /fonts
   static_dir: static/fonts
 
-- url: /tmpl
-  static_dir: tmpl/
-
 - url: /.*
   script: _go_app

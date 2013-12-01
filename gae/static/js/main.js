@@ -18,27 +18,25 @@
 
   // -- Refresh the text
 
-  var redraw = function(num, cb) {
+  var redraw = function(num) {
+    var canvas = $(".canvas");
+    var metadata = $(".metadata");
+
     if (!num) { num = 4 }
 
-    $.get("/paragraphs?num=" + num, function(resp) {
-
-
-      // TODO(thomas) : can you fix this crap please? I'm trying to add the
-      // class fadeOutLeft immediately after the num-paragraphs links are
-      // clicked, then grab the next text, and add fadeInRight.
-      $(".canvas").removeClass('fadeInRight').addClass('fadeOutLeft');
-      $(".canvas").html(_.map(resp.Data, function(p) {
+    var update_page = function(resp) {
+      canvas.html(_.map(resp.Data, function(p) {
         return "<p>" + p + "</p>"
       }));
-      $(".canvas").removeClass('fadeOutLeft').addClass('fadeInRight');
+      metadata.html(_.template($("#tmpl-metadata").html(), resp));
 
-      $(".author-info .author").text(resp.Author);
-      $(".author-info .title a").text(resp.Title).attr(
-        'href', 'http://www.gutenberg.org/ebooks/' + resp.Id);
+      canvas.removeClass('fadeOutLeft').addClass('fadeInRight');
+      metadata.removeClass('fadeOutLeft').addClass('fadeInRight');
+    };
 
-      if (cb) { cb() }
-    });
+    canvas.addClass('fadeOutLeft');
+    metadata.addClass('fadeOutLeft');
+    $.get("/paragraphs?num=" + num, update_page);
   };
 
   $('.list-group-item').click(function() {
