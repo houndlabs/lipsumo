@@ -37,6 +37,7 @@ For anyone interested in using this project themselves or doing some development
 
 ```
 cp gae/app.yaml.example gae/app.yaml
+cp gae/config.json.example gae/config.json
 ```
 
 * Fetch the dependencies
