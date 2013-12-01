@@ -1,6 +1,6 @@
 package ipsum
 
-import(
+import (
   "html/template"
   "io/ioutil"
   "log"
@@ -8,11 +8,20 @@ import(
   "fmt"
   "math/rand"
   "net/http"
+  "os"
   "strconv"
   "time"
 
   "github.com/ant0ine/go-json-rest"
 )
+
+var (
+  config *Config
+)
+
+type Config struct {
+  Mailchimp string
+}
 
 type Book struct {
   Author string
@@ -33,6 +42,21 @@ type Response struct {
   Title string
   Id int
   Data []string
+}
+
+func loadConfig() {
+  file, err := ioutil.ReadFile("config.json")
+  if err != nil {
+    log.Println("open config: ", err)
+    os.Exit(1)
+  }
+
+  temp := new(Config)
+  if err = json.Unmarshal(file, temp); err != nil {
+    log.Println("parse config: ", err)
+    os.Exit(1)
+  }
+  config = temp
 }
 
 func selectParagraphs(count int) Response {
@@ -69,15 +93,29 @@ func getParagraphs(w *rest.ResponseWriter, r *rest.Request) {
 func showIndex(w *rest.ResponseWriter, r *rest.Request) {
   t, _ := template.ParseFiles(
     "tmpl/about.html",
-    "tmpl/head.html",
     "tmpl/foot.html",
+    "tmpl/head.html",
     "tmpl/index.html",
+    "tmpl/metadata.html",
   )
-  t.ExecuteTemplate(w, "index", selectParagraphs(4))
+
+  var tmpl_data struct {
+    Response
+    Config
+  }
+
+  tmpl_data.Response = selectParagraphs(4)
+  tmpl_data.Config = *config
+
+  log.Println(tmpl_data)
+  t.ExecuteTemplate(w, "index", tmpl_data)
 }
 
 func init() {
+  // -- If you don't seed the golang RNG ... it isn't random at all.
   rand.Seed(time.Now().UTC().UnixNano())
+
+  loadConfig()
 
   handler := rest.ResourceHandler{}
   handler.SetRoutes(
