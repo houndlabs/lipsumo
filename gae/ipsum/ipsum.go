@@ -21,6 +21,7 @@ var (
 
 type Config struct {
   Mailchimp string
+  Segmentio string
 }
 
 type Book struct {

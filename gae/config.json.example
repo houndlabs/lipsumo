@@ -1,3 +1,4 @@
 {
-  "mailchimp": "my-mailchimp-url"
+  "mailchimp": "my-mailchimp-url",
+  "segmentio": "my-segment-code"
 }
