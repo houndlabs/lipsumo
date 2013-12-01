@@ -42,6 +42,7 @@
   $('.list-group-item').click(function() {
     $('.list-group-item').closest('li').removeClass('active');
     $(this).closest('li').addClass('active');
+    redraw($('li.active > a').attr('num'));
   });
 
   $('.repeat').click(function(e) {
