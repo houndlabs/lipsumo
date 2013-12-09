@@ -50,4 +50,52 @@
     redraw($('li.active > a').attr('num'));
   });
 
+  // -- Event tracking
+
+  twttr.ready(function (twttr) {
+    twttr.events.bind('follow', function(e) {
+      analytics.track('twitter.follow', {
+        category: 'twitter',
+        action: 'follow'
+      });
+
+      ga('send', 'social', 'twitter', 'follow');
+    });
+
+    twttr.events.bind('tweet', function (e) {
+      analytics.track('twitter.tweet', {
+        category: 'twitter',
+        action: 'tweet'
+      });
+
+      ga('send', 'social', 'twitter', 'tweet');
+    });
+  });
+
+  $("#facebook-jssdk")[0].onload = function() {
+    FB.Event.subscribe('edge.create', function() {
+      analytics.track('facebook.like', {
+        category: 'facebook',
+        action: 'like'
+      });
+
+      ga('send', 'social', 'facebook', 'like');
+    });
+  };
+
+  $(".donate > a").click(function() {
+    analytics.track('charity.donate', {
+      category: 'charity',
+      action: 'donate',
+      label: $(this).attr('data-dest')
+    });
+  });
+
+  $("#mc-embedded-subscribe-form").submit(function() {
+    analytics.track('email.subscribe', {
+      category: 'email',
+      action: 'subscribe'
+    });
+  });
+
 })(jQuery);
