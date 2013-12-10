@@ -28,6 +28,16 @@
         window.analytics.page();
         </script>
 
+        <script src="//d28aj5qi0f6caq.cloudfront.net/dist/hospitality.1.js"></script>
+        <script>
+          hospitality.init({
+            visit: {
+              return: function() { $("#return-visit").removeClass('hide'); }
+            },
+            wait: 100
+          });
+        </script>
+
         <script src="js/main.js"></script>
     </body>
 </html>
