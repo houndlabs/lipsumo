@@ -2,131 +2,137 @@
 
 {{template "head.html" .}}
 
-<div class="container">
-  <div class="alert alert-warning alert-dismissable hide text-center" id="return-visit">
-    Thanks for coming back! Follow us on Twitter for new experiments!
-    <a href="https://twitter.com/houndlabs" class="twitter-follow-button"
-       data-show-count="false" data-lang="en">Follow @houndlabs</a>
-  </div>
-</div>
+<div class="wrapper">
 
-<div class="header-block">
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <h1 class="tk-cubano text-center giant emphasis">Lipsumo</h1>
-      </div>
-      <div class="col-xs-6 pull-left">
-        <h3 class="tk-cubano">Heavyweight<br>lorem<br>ipsum.</h3>
-      </div>
-      <div class="col-xs-6 pull-right text-right">
-        <h3 class="tk-cubano">Text from<br><a href="http://www.gutenberg.org/"
-            target="_blank">Project<br>Guten-<br>berg</a></h3>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="body-block">
-
-  <div class="sumo-head">
-    <div class="row">
-      <div class="col-xs-offset-3 col-xs-6 sumo-face">
-        <img src="images/lipsumo-face.svg" width="780" height="630" alt="LIPSUMO">
-      </div>
+    <div class="alert alert-warning alert-dismissable hide text-center" id="return-visit">
+      Thanks for coming back! Follow us on Twitter for new experiments!
+      <a href="https://twitter.com/houndlabs" class="twitter-follow-button"
+         data-show-count="false" data-lang="en">Follow @houndlabs</a>
     </div>
   </div>
 
-  <div class="sumo-shoulders">
-    <img src="images/lipsumo-shoulders.svg" width="1680" height="484" alt="LIPSUMO">
-  </div>
-  <div class="sumo-body">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-4 speech-chrome metadata">
-          <div class="author-info" title="{{.Author}} &mdash; {{.Title}}">
-            <span class="author">{{.Author}}</span><br>
-            <span class="title"><a href="http://www.gutenberg.org/ebooks/{{.Id}}"
-                  target="_blank">{{.Title}}</a></span>
-          </div>
-        </div>
-        <div class="col-xs-8 speech-chrome">
-          <div class="num-paragraphs">
-            <ul class="list-group amount nav nav-pills">
-              <li><a class="list-group-item" num="2">
-                <span class="icon-btn-small"></span></a>
-              </li>
-              <li class="active"><a class="list-group-item" num="4">
-                <span class="icon-btn-medium"></span></a>
-              </li>
-              <li><a class="list-group-item" num="6">
-                <span class="icon-btn-large"></span></a>
-              </li>
-            </ul>
-            <a href="#" class="repeat"><i class="fa fa-repeat"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
+  <div class="header-block">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <div class="speech-bubble">
-            <div class="row">
-              <div class="col-xs-offset-4 col-xs-1">
-                <div class="speech-bubble-squiggle">
-                  <img src="images/speech-squiggle.svg" width="1680"
-                       height="484" alt="LIPSUMO">
-                </div>
-              </div>
-            </div>
-            <p class="text-light instructions">Click to copy</p>
-            <div class="canvas animated">
-              {{range .Data}}
-              <p>{{.}}</p>
-              {{end}}
-            </div>
+          <h1 class="tk-cubano text-center giant emphasis">Lipsumo</h1>
+        </div>
+        <div class="col-xs-6 pull-left">
+          <h3 class="tk-cubano">Heavyweight<br>lorem<br>ipsum.</h3>
+        </div>
+        <div class="col-xs-6 pull-right text-right">
+          <h3 class="tk-cubano">Text from<br><a href="http://www.gutenberg.org/"
+              target="_blank">Project<br>Guten-<br>berg</a></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body-block">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-offset-3 col-xs-6 sumo-face">
+            <div class="sumo-head">
+            <img src="images/lipsumo-face.svg" width="780" height="630" alt="LIPSUMO">
           </div>
         </div>
       </div>
     </div>
 
-    <footer class="site-footer">
-      <div class="text-center">
-        <section class="moat">
-          <div class="attribution">
-            a <a href="http://hound.io">Hound</a> experiment
-            <a href="https://twitter.com/houndlabs" class="twitter-follow-button"
-               data-show-count="false" data-lang="en">Follow @houndlabs</a>
-          </div>
-        </section>
+    <div class="sumo-shoulders">
+      <img src="images/lipsumo-shoulders.svg" width="1680" height="484" alt="LIPSUMO">
+    </div>
+    <div class="sumo-body">
 
-        <section>
-          <div class="share">
-            <a href="https://twitter.com/share" class="twitter-share-button"
-            data-url="http://lipsumo.hound.io" data-text="LIPSUMO: lorem ipsum
-            from @gutenberg_new" data-via="houndlabs">Tweet</a>
-            <div class="fb-like" data-href="http://lipsumo.hound.io"
-            data-layout="button_count" data-action="like" data-show-faces="false"
-            data-share="false"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-4 speech-chrome metadata">
+            <div class="author-info" title="{{.Author}} &mdash; {{.Title}}">
+              <a href="http://www.gutenberg.org/ebooks/{{.Id}}" target="_blank">
+                <span class="author">{{.Author}}</span><br>
+                <span class="title">{{.Title}}</span>
+              </a>
+            </div>
           </div>
-        </section>
-
-        <section>
-          <a class="footer-link" data-toggle="modal" data-target="#subscribeModal">
-            <i class="fa fa-info-circle"></i> About Lipsumo</a>
-          <a class="footer-link" href="https://github.com/houndlabs/lipsumo">
-            <i class="fa fa-github"></i> Lipsumo on Github</a>
-          <a class="footer-link"
-             href="https://github.com/houndlabs/lipsumo/blob/master/LICENSE">
-             <i class="fa fa-legal"></i> MIT License</a>
-        </section>
+          <div class="col-xs-8 speech-chrome">
+            <div class="num-paragraphs">
+              <ul class="list-group amount nav nav-pills">
+                <li><a class="list-group-item" num="2">
+                  <span class="icon-btn-small"></span></a>
+                </li>
+                <li class="active"><a class="list-group-item" num="4">
+                  <span class="icon-btn-medium"></span></a>
+                </li>
+                <li><a class="list-group-item" num="6">
+                  <span class="icon-btn-large"></span></a>
+                </li>
+              </ul>
+              <a href="#" class="repeat"><i class="fa fa-repeat"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="speech-bubble">
+              <div class="row">
+                <div class="col-xs-offset-4 col-xs-1">
+                  <div class="speech-bubble-squiggle">
+                    <img src="images/speech-squiggle.svg" width="1680"
+                         height="484" alt="LIPSUMO">
+                  </div>
+                </div>
+              </div>
+              <p class="text-light instructions">Click to select</p>
+              <div class="canvas animated">
+                {{range .Data}}
+                <p>{{.}}</p>
+                {{end}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <div class="text-center">
+          <section class="moat">
+            <div class="attribution">
+              a <a href="http://hound.io">Hound</a> experiment
+              <a href="https://twitter.com/houndlabs" class="twitter-follow-button"
+                 data-show-count="false" data-lang="en">Follow @houndlabs</a>
+            </div>
+          </section>
+
+          <section>
+            <div class="share">
+              <a href="https://twitter.com/share" class="twitter-share-button"
+              data-url="http://lipsumo.hound.io" data-text="LIPSUMO: lorem ipsum from @gutenberg_new" data-via="houndlabs">Tweet</a>
+              <div class="fb-like" data-href="http://lipsumo.hound.io"
+              data-layout="button_count" data-action="like" data-show-faces="false"
+              data-share="false"></div>
+            </div>
+          </section>
+
+          <section>
+            <a class="footer-link" data-toggle="modal" data-target="#subscribeModal">
+              <i class="fa fa-info-circle"></i> About Lipsumo</a>
+            <a class="footer-link" href="https://github.com/houndlabs/lipsumo">
+              <i class="fa fa-github"></i> Lipsumo on Github</a>
+            <a class="footer-link"
+               href="https://github.com/houndlabs/lipsumo/blob/master/LICENSE">
+               <i class="fa fa-legal"></i> MIT License</a>
+          </section>
+        </div>
+      </footer>
+    </div>
   </div>
-</div>
+
+</div> <!-- / .wrapper -->
 
 <div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
@@ -146,9 +152,10 @@
 
 <script type="tmpl/underscore" id="tmpl-metadata">
   <div class="author-info" title="<%= Author %> &mdash; <%= Title %>">
-    <span class="author"><%= Author %></span><br>
-    <span class="title"><a href="http://www.gutenberg.org/ebooks/<%= Id %>"
-          target="_blank"><%= Title %></a></span>
+    <a href="http://www.gutenberg.org/ebooks/<%= Id %>" target="_blank">
+      <span class="author"><%= Author %></span><br>
+      <span class="title"><%= Title %></span>
+    </a>
   </div>
 </script>
 

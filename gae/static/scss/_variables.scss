@@ -19,6 +19,10 @@ $link-hover-color: $clr-turquoise-dark;
 
 /* ------------> Measurements <------------ */
 
+$base-font-size: 16px;
+$base-line-height: 1.5;
+$em-base: 16;
+
 @function emCalc($pxWidth) {
   @return $pxWidth / $em-base * 1em;
 }
@@ -27,9 +31,7 @@ $link-hover-color: $clr-turquoise-dark;
   @return $pxWidth / $em-base * 1rem;
 }
 
-$base-font-size: 16px;
-$base-line-height: 1.5;
-$em-base: 16;
+$footer-height: emCalc(240);
 
 $zero-screen: 0;
 $x-tiny-screen: emCalc(360);

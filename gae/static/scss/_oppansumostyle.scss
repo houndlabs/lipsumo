@@ -8,6 +8,14 @@
 {* =======----------------------TORPEDOES AWAY------------------------======= *}
 \* ============================V==V==V==V==V==V============================== */
 
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: $bg-color;
   color: $text-color;
@@ -16,6 +24,7 @@ body {
   line-height: $base-line-height;
   min-width: $x-tiny-screen;
   max-width: $xx-large-screen;
+  margin: 0 auto;
 }
 
 .center-wrap {
@@ -26,6 +35,18 @@ body {
     position: relative;
     left: -50%;
   }
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0;
+  margin-bottom: -$footer-height;
+}
+
+.push {
+  height: $footer-height;
 }
 
 img {
@@ -53,6 +74,16 @@ a {
     position: relative;
     top: 2px;
   }
+}
+
+::selection {
+  background: $clr-yellow;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: $clr-yellow;
+  color: #fff;
 }
 
 .inline-block {
@@ -97,8 +128,8 @@ section {
 .sumo-head {
   position: absolute;
   width: 100%;
-  min-width: $x-tiny-screen;
-  max-width: $xx-large-screen;
+  //min-width: $x-tiny-screen;
+  //max-width: $xx-large-screen;
 
   .row {
     margin: 0;
@@ -111,11 +142,13 @@ section {
 
 .speech-bubble {
   margin-top: -3.5em;
+  margin-bottom: 3.5em;
 }
 
 .site-footer {
   padding: 3em 0 1.5em;
-  margin: 3em 0 0;
+  margin: 0;
+  height: $footer-height;
 }
 
 .speech-chrome {
@@ -132,7 +165,8 @@ section {
 /* =======----------------------MODULES------------------------======= */
 
 .sumo-shoulders {
-  margin-bottom: -0.25em;
+  margin: 0 auto -0.25em;
+  max-width: 1680px;
 
   img {
     margin-top: -2em;
@@ -148,9 +182,20 @@ section {
   margin: 0 auto -1px;
 }
 
+.metadata {
+  a {
+    color: $link-color;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+}
+
 .speech-bubble {
   @include border-radius(5px);
   background: #fff;
+  color: $text-color;
   padding: 1.5em 2em;
   position: relative;
   z-index: 999;
@@ -242,17 +287,17 @@ section {
   line-height: 1;
   font-size: 0.8em;
   background: #fff;
-  color: $clr-yellow;
+  color: $link-color;
   padding: 0.5em 0.4em;
 
   &:hover {
     background-color: rgba(white, 0.6);
-    color: $clr-yellow-dark;
+    color: $link-hover-color;
   }
 
   &:active {
     background-color: rgba(white, 0.4);
-    color: darken($clr-yellow-dark, 10%);
+    color: darken($link-hover-color, 10%);
   }
 }
 
@@ -261,7 +306,7 @@ section {
 
   li.active a.list-group-item {
     background-color: rgba(white, 0.6);
-    color: $clr-yellow-dark;
+    color: darken($link-hover-color, 10%);
   }
 
   li:nth-child(1) a.list-group-item {
