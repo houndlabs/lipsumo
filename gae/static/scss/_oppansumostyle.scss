@@ -164,6 +164,12 @@ section {
 
 /* =======----------------------MODULES------------------------======= */
 
+.alert.alert-warning {
+  position: relative;
+  z-index: 1000;
+  margin-bottom: 2em;
+}
+
 .sumo-shoulders {
   margin: 0 auto -0.25em;
   max-width: 1680px;
